@@ -6,8 +6,7 @@ Prisoner_hp = 100
 Prisoner_hitchance = random.randint(7,10)
 prison_break = True
 current_room = "room_1"
-
-print (f"Vi är i början av spelet: {current_room}")
+guardhp = 100
 
 ### FUNCTIONS ###
 
@@ -24,7 +23,6 @@ def clear_terminal():
         os.system('cls')
 
 def room_1(current_room):
-    print (f"Vi är i room_1: {current_room}")
     print_slow("Du är i en cell, som är tom")
     print_slow("1. Söka rummet")
     print_slow("2. Försök öppna dörren")
@@ -41,36 +39,47 @@ def room_1(current_room):
     val2 = input("Ja/Nej? ").lower()
     if (val2 == "ja"):
         current_room = "room_2"
-        return current_room
-    else:
+    
+    elif (val2 == "nej"):
         print("Du vill stanna kvar här")
         print("Till slut dör du av svält. Game over.")
         exit()
+    return current_room
 
 def room_2(current_room):
-    if current_room == "room_2":
-        print (f"Vi är i room_2: {current_room}")
-        clear_terminal()
-        print_slow("Nu är du i ventilation")
-        print_slow("Du har två väg, höger eller vänster")
-        print_slow("1. Höger"
-        "\n2. Vänster")
-        val3 = input("Svar (1/2)")
-        if val3 == "1":
-            print_slow()
-        return current_room
+    clear_terminal()
+    print_slow("Nu är du i ventilation")
+    print_slow("Du har två väg, höger eller vänster")
+    print_slow("1. Höger"
+    "\n2. Vänster")
+    val3 = input("Svar (1/2)")
+    if val3 == "1":
+        try:
+            print_slow("Du går höger i ventilationen")
+            print_slow("Vid den sida sover vakt. Du kan döda han med kniv")
+            print_slow("Vill du eller inte?")
+            val4 =input("Svar(Ja/Nej)? ").lower()
+            if (val4 == "ja"):
+                träffchans = random.randint(1,10)
+                if träffchans >= 4:
+                    guardhp - 100
+                    print("Vakten är död och du hittat en kort, nu fortsätter du genom koridoren och slutet av koridoren så finns det en dör med kortläsare bredvid vad vill du göra?")
+                else:
+                    prison_break = False
+        
+        
+            elif val3 == "2":
+                current_room = "room_3"
+        except:
+            return current_room, prison_break
 
     
-
-def room_2_h():
-    print_slow()
 
 #Början av spelet
 while (prison_break == True):
     if (current_room == "room_1"):
         #Anropar funktionen room_1
         current_room = room_1(current_room)
-        print (f"Vi är i spelloopen: {current_room}")
     elif (current_room == "room_2"):
         #Anropar funktionen room_2
         current_room = room_2(current_room)
