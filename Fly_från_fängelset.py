@@ -7,6 +7,7 @@ Prisoner_hitchance = random.randint(7,10)
 prison_break = True
 current_room = "room_1"
 guardhp = 100
+Samuraihp = 100
 
 ### FUNCTIONS ###
 
@@ -62,16 +63,24 @@ def room_2(current_room):
             if (val4 == "ja"):
                 träffchans = random.randint(1,10)
                 if träffchans >= 4:
-                    guardhp - 100
-                    print("Vakten är död och du hittat en kort, nu fortsätter du genom koridoren och slutet av koridoren så finns det en dör med kortläsare bredvid vad vill du göra?")
+                    guardhp = guardhp - 100
+                    print_slow("Vakten är död och du hittat en kort, nu fortsätter du genom koridoren och slutet av koridoren så finns det en dör med kortläsare du öppnar dörren och går igenom. ")
+                
+                elif val4 == "Ja":
+                    current_room = "room_3"
+                
                 else:
                     prison_break = False
-        
-        
-            elif val3 == "2":
-                current_room = "room_3"
         except:
-            return current_room, prison_break
+            return current_room, prison_break, guardhp
+
+def room_3():
+    clear_terminal()
+    print_slow("Nu är du i en stor rum, det är knivar i vägen, det finns blod på de. ")
+    print_slow("Andra sidan av rummet är det en Samurai med två svärd. ")
+    print_slow("Du får välja dina vapen")
+    input("")
+
 
     
 
@@ -85,4 +94,3 @@ while (prison_break == True):
         current_room = room_2(current_room)
     else: 
         exit()
-    
