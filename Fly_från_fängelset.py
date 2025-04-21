@@ -114,42 +114,52 @@ def room_2(current_room):
 #Definitionen till funktionen för tredje rummet
 def room_3(current_room):
     clear_terminal()
-    print_slow("Nu är du i en stor rum, det är knivar i vägen, det finns blod på de. ")
-    print_slow("Andra sidan av rummet är det en Samurai med två katana, en stor en små. ")
+    print_slow("Nu är du i en stor rum, det är olika vapen i vägen, det finns blod på de. ")
+    print_slow("Andra sidan av rummet är det en Samurai med två katana, en stor och en små. ")
+    print_slow("Hela rummet är gjord av oförstörbar metal.")
     print_slow("Du får välja dina vapen")
     print_slow("Katana(1)")
+    print_slow("Två moves, första är AOE damage baserat move, vilket ger damage i ett område för att skada fler mål.")
+    print_slow("Du använder elemten blixten som laddar dina katanas, du får inte lika mycket damage men högre träff chans.")
     print_slow("Big Sledge Hammer(2)")
+    print_slow("För denna vapen är det så att du snurrar med din hammer och får låg träff chans men hög damage.Det var första move.")
+    print_slow("Du kan också slå hammaren på marken för att hela rummen gjord av oförstörbar metal, vilket kommer skapa en sonisk våg.")
     weaponinput = input("Svar(1/2)")
     if weaponinput == "1":
         characterweapon = "Katana"
-        katchance = random.randint(1,100)
-        if katchance < 25:
+        katchancelightning = random.randint(1,100)
+        katchanceaoe = random.randint(1,100)
+        if katchancelightning < 25:
             katdamage = 0
-        elif katchance >=25:
+        elif katchancelightning >=25:
             katdamage = 10
-        elif katchance >= 50:
+        elif katchancelightning >= 50:
             katdamage = 20
-        elif katchance >= 75:
+        elif katchancelightning >= 75:
             katdamage = 30
-        elif katchance == 100:
+        elif katchancelightning == 100:
             katdamage = 100
     elif weaponinput == "2":
-        characterweapon = "Two-Handed Hammer"
-        hamchance = random.randint(1,100)
-        if hamchance >=25:
+        characterweapon = "Big Sledge Hammer"
+        ham_chance_aoe = random.randint(1,100)
+        if ham_chance_aoe >=25:
             hamdamage = 15
-        elif hamchance >= 50:
+        elif ham_chance_aoe >= 50:
             hamdamage = 30
-        elif hamchance >= 75:
+        elif ham_chance_aoe >= 75:
             hamdamage = 45
-        elif hamchance == 100:
+        elif ham_chance_aoe == 100:
             hamdamage = 100
 
     elif weaponinput == "Ragnarök":
         characterweapon = "Mjölnir"
     elif weaponinput == "Nuttertools":
         characterweapon == "MiniGun"
-    
+
+    print_slow(f"Du har valt{weaponinput} nu du får slåss mot Samurai")
+    print_slow("Välj dina moves")
+    input("Svar:")
+
     if Samuraihp == 0:
         current_room = "room_4"
     
@@ -175,5 +185,6 @@ while (prison_break == True):
     #Anropar funktionen room_3
     elif (current_room == "room_3"):
         current_room = room_3(current_room)
+        
     else: 
         exit()
