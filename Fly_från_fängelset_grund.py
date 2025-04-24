@@ -83,9 +83,10 @@ def room_2(current_room):
     clear_terminal()
     print_slow("Nu är du i ventilation")
     print_slow("Du har två väg, höger eller vänster")
+    print_slow("Vart ska du? ")
     print_slow("1. Höger"
     "\n2. Vänster")
-    val3 = input("Svar (1/2)")
+    val3 = input("Svar (1/2): ")
     if val3 == "1":
         try:
             print_slow("Du går höger i ventilationen")
@@ -93,7 +94,7 @@ def room_2(current_room):
             print_slow("Vad vill du göra?")
             print_slow("1. Döda han.")
             print_slow("2. Gå förbi han(han kan vakna)")
-            val4 =input("Svar(1/2)? ").lower()
+            val4 =input("Svar(1/2)? ")
             if (val4 == "1"):
                 träffchans = random.randint(1,10)
                 if träffchans >= 4:
@@ -107,21 +108,18 @@ def room_2(current_room):
                         current_room = "room_3"
                 
                 else:
-                    prison_break = False
+                    exit()
         except:
-            return current_room, prison_break, guardhp
-        
-    if val3 == "2":
-        print_slow("Du är sluttet av ventilation och i korridoren så finns det en dörr")
-        print_slow("Vad ska du göra? ")
-        print_slow("Öppna dörren(1)")
-        print_slow("Stanna kvar(2)")
-        val5 = input("Svar: (1/2): ")
-        if val5 == "1":
-            current_room = "room_3"
-        
-
-    return current_room, prison_break, guardhp
+            return current_room, 
+        if val3 == "2":
+            print_slow("Du är sluttet av ventilation och i korridoren så finns det en dörr")
+            print_slow("Vad ska du göra? ")
+            print_slow("Öppna dörren(1)")
+            print_slow("Stanna kvar(2)")
+            val5 = input("Svar: (1/2): ")
+            if val5 == "1":
+                current_room = "room_3"
+    return current_room
 
 #Definitionen till funktionen för tredje rummet(Mini Boss)
 def room_3(current_room):
@@ -203,23 +201,12 @@ def room_3(current_room):
             print_slow("Med minigun kan du skjuta och döda inom några sekunder")
 
         Samuraihp = Samuraihp - hamdamage or katdamage or mjölnir_damage_bifrost or minidamage
-        
     if Samuraihp == 0:
-        print_slow("Nu är Samurai är död. ")
-        print_slow("I rummet har dökt upp en dörr, vad ska du göra nu? ")
-        print_slow("Fortsätt(1) eller inte(2)")
-        valinput("Svar(1/2): ")
-        if 
-
         current_room = "room_4"
     
-    
-
     return characterweapon, current_room, hamdamage, ham_chance_snurr, ham_chance_sonic, katchanceaoe, katchancelightning, katdamage, mjölnir_damage_bifrost, minidamage
 
-#Definitionen för fjärde rummet(Pusselrummet) 
-def room_4():
-    print_slow("")
+
     
 
 #Början av spelet
