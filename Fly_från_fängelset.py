@@ -208,23 +208,26 @@ def room_3(current_room):
         print_slow("Nu är Samurai är död. ")
         print_slow("I rummet har dökt upp en dörr, vad ska du göra nu? ")
         print_slow("Fortsätt(1) eller inte(2)")
-        valinput("Svar(1/2): ")
-        if 
-
-        current_room = "room_4"
-    
-    
-
-    return characterweapon, current_room, hamdamage, ham_chance_snurr, ham_chance_sonic, katchanceaoe, katchancelightning, katdamage, mjölnir_damage_bifrost, minidamage
+        val6 = input("Svar(1/2): ")
+        if val6 == "1":
+            print_slow("Du valde att fortsätta. Nu öppnar du dörren och går igenom")
+            current_room = "room_4"
+        elif val6 == "2":
+        
+            return characterweapon, current_room, hamdamage, ham_chance_snurr, ham_chance_sonic, katchanceaoe, katchancelightning, katdamage, mjölnir_damage_bifrost, minidamage
 
 #Definitionen för fjärde rummet(Pusselrummet) 
 def room_4():
-    print_slow("")
-    
-
+    print_slow("På väggen så finns det tre meningar, gåtor")
+    print_slow('Vilket står "Jag är lätt som en fjäder, men den starkaste personen kan inte hålla mig i fem minuter. Vad är jag?"')
+    print_slow("Vad är ditt svar för den här gåtan")
+    riddleinput1 = input("Svar: ").lower
+    if riddleinput1 == "Andetag":
+        print_slow('Andra gåtan är "Jag har en låda utan gångjärn, nyckel eller lock, men ändå döljer sig en gyllene skatt inuti. Vad är jag?"')
+        print_slow("Vad är ditt svar")
 #Början av spelet
 while (prison_break == True):
-
+    room_4()
     clear_terminal()
     #menyn för spelet i loopen
     if current_room == "meny":
