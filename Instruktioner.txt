@@ -1,0 +1,4 @@
+Instruktioner till spelet: Fly Från Fängelset
+
+De flesta val görs med 1 eller 2.
+Om man förlorar i nått rum så börjar man om från en rum tidigare.
