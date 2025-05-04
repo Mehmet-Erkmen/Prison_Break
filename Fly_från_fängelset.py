@@ -245,8 +245,8 @@ def room_4(current_room):
     riddle3_chance = 0
     while loop_room_4 == True:
             if riddle1_chance == 4 or riddle2_chance == 4 or riddle3_chance == 4:
-                print_slow("Du förlora alla gåtor. Du får börja om")
-                exit()
+                print_slow("Du förlora alla gåtor. Du får börja om från rum 3")
+                current_room = "room_3"
             print(riddle1_chance)
             print_slow("På väggen så finns det tre meningar, gåtor")
             print_slow("Du har tre chans varje gåta för att klara dessa gåtor, om du klarar inte så hela spelet")
